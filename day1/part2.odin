@@ -1,4 +1,4 @@
-package part2
+package day1
 
 import "core:fmt"
 import "core:os"
@@ -6,7 +6,7 @@ import "core:strings"
 import "core:unicode/utf8"
 
 part2 :: proc() {
-	data, ok := os.read_entire_file("input", context.allocator)
+	data, ok := os.read_entire_file("inputs/day1.input", context.allocator)
 	if !ok {
 		fmt.print("Failed to read file")
 		return
@@ -49,7 +49,6 @@ part2 :: proc() {
 			}
 		}
 		sum += 10 * (int(numbers[0]) - 48) + int(numbers[len(numbers) - 1] - 48)
-		fmt.println(numbers, 10 * (int(numbers[0]) - 48) + int(numbers[len(numbers) - 1] - 48))
 	}
 	fmt.println(sum)
 }

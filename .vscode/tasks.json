@@ -1,0 +1,19 @@
+{
+    "version": "2.0.0",
+    "command": "",
+    "args": ["file"],
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "odin build main.odin -file -debug -out:out/main.out -extra-linker-flags:'-L/opt/homebrew/lib'",
+            "group": "build"
+        },
+        {
+            "label": "Build",
+            "dependsOn": [
+                "build"
+            ]
+        }
+    ]
+}

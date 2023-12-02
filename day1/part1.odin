@@ -1,4 +1,4 @@
-package part1
+package day1
 
 import "core:fmt"
 import "core:os"
@@ -6,7 +6,7 @@ import "core:strings"
 
 
 part1 :: proc() {
-	data, ok := os.read_entire_file("input", context.allocator)
+	data, ok := os.read_entire_file("inputs/day1.input", context.allocator)
 	if !ok {
 		fmt.print("Failed to read file")
 		return

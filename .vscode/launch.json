@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "preLaunchTask": "Build",
+            "name": "Debug",
+            "program": "${workspaceFolder}/out/main.out",
+            "args": "${input:day} ${input:phase}",
+            "cwd": "${workspaceFolder}",
+        },
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "day",
+            "description": "Day",
+        },
+        {
+            "type": "promptString",
+            "id": "phase",
+            "description": "Phase",
+        }
+    ]
+}
