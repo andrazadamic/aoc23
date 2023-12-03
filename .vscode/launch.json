@@ -7,7 +7,7 @@
             "preLaunchTask": "Build",
             "name": "Debug",
             "program": "${workspaceFolder}/out/main.out",
-            "args": "${input:day} ${input:phase}",
+            "args": "${input:day}",
             "cwd": "${workspaceFolder}",
         },
     ],
@@ -16,11 +16,6 @@
             "type": "promptString",
             "id": "day",
             "description": "Day",
-        },
-        {
-            "type": "promptString",
-            "id": "phase",
-            "description": "Phase",
         }
     ]
 }

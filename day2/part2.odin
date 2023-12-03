@@ -5,7 +5,7 @@ import "core:os"
 import "core:strconv"
 import "core:strings"
 
-part2 :: proc() {
+main :: proc() {
 	data, ok := os.read_entire_file("inputs/day2.input", context.allocator)
 
 	if !ok {
@@ -16,7 +16,15 @@ part2 :: proc() {
 
 	it := string(data)
 
-	sum := 0
+	maxPull := Pull {
+        id    = 0,
+		red   = 12,
+		green = 13,
+		blue  = 14,
+	}
+
+	sum1 := 0
+	sum2 := 0
 
 	for line in strings.split_lines_iterator(&it) {
 		input, _ := strings.split(line, ":")
@@ -29,6 +37,15 @@ part2 :: proc() {
 		for pull, i in inputs {
 			append(&pulls, createPull(pull, id))
 		}
+
+		valid := true
+		for pull, i in pulls {
+			valid &= validate(pull, maxPull)
+		}
+
+        if valid {
+            sum1 += id
+        }
 
 		minPull := Pull {
 			id    = 0,
@@ -43,8 +60,9 @@ part2 :: proc() {
 			if pull.blue > minPull.blue { minPull.blue = pull.blue }
 		}
 
-		sum += minPull.red * minPull.green * minPull.blue
+		sum2 += minPull.red * minPull.green * minPull.blue
 	}
 
-	fmt.println(sum)
+	fmt.println("Prvi del:", sum1)
+	fmt.println("Drugi del:", sum2)
 }

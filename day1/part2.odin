@@ -5,7 +5,7 @@ import "core:os"
 import "core:strings"
 import "core:unicode/utf8"
 
-part2 :: proc() {
+main :: proc() {
 	data, ok := os.read_entire_file("inputs/day1.input", context.allocator)
 	if !ok {
 		fmt.print("Failed to read file")
