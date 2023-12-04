@@ -5,8 +5,44 @@ import "core:os"
 import "core:strings"
 import "core:unicode/utf8"
 
+/*
+    Resitev:
+        1. 54951
+        2. 55218
+*/
+
 main :: proc() {
-	data, ok := os.read_entire_file("inputs/day1.input", context.allocator)
+    file := "inputs/day1.input"
+    part1(file)
+    part2(file)
+}
+
+part1 :: proc(file: string) {
+	data, ok := os.read_entire_file(file, context.allocator)
+	if !ok {
+		fmt.print("Failed to read file")
+		return
+	}
+	defer delete(data, context.allocator)
+
+	it := string(data)
+	sum := 0
+
+	for line in strings.split_lines_iterator(&it) {
+		numbers: [dynamic]rune
+		for c in line {
+			if c >= '0' && c <= '9' {
+                append(&numbers, c)
+            }
+		}
+		
+		sum += 10 * (int(numbers[0]) - 48) + int(numbers[len(numbers) - 1] - 48)
+	}
+	fmt.println(sum)
+}
+
+part2 :: proc(file: string) {
+	data, ok := os.read_entire_file(file, context.allocator)
 	if !ok {
 		fmt.print("Failed to read file")
 		return
