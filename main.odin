@@ -8,6 +8,9 @@ import "day2"
 import "day3"
 import "day4"
 import "day5"
+import "day6"
+import "day7"
+import "day8"
 
 main :: proc() {
 	if (len(os.args)) == 1 {
@@ -26,6 +29,12 @@ main :: proc() {
 		day4.main()
 	case "5":
 		day5.main()
+	case "6":
+		day6.main()
+	case "7":
+		day7.main()
+	case "8":
+		day8.main()
 	case:
 		fmt.println("You need to add argument if you want to run part 1 or part 2")
 
