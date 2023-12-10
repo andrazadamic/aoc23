@@ -4,6 +4,7 @@ import "core:fmt"
 import "core:os"
 
 import "day1"
+import "day10"
 import "day2"
 import "day3"
 import "day4"
@@ -11,6 +12,7 @@ import "day5"
 import "day6"
 import "day7"
 import "day8"
+import "day9"
 
 main :: proc() {
 	if (len(os.args)) == 1 {
@@ -35,6 +37,10 @@ main :: proc() {
 		day7.main()
 	case "8":
 		day8.main()
+	case "9":
+		day9.main()
+	case "10":
+		day10.main()
 	case:
 		fmt.println("You need to add argument if you want to run part 1 or part 2")
 
